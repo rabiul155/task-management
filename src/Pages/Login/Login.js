@@ -4,25 +4,33 @@ import { useForm } from 'react-hook-form';
 
 const Login = () => {
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
+
 
     return (
 
         <div>
-            <form className=' flex justify-center mt-4'>
+            <form onSubmit={handleSubmit} className=' flex justify-center '>
                 <div className=' w-96 border-purple-700  p-6'>
                     <h2 className=' font-bold text-4xl text-purple-700 text-center p-3'>LogIn</h2>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+                        <input name='email' type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Your password</label>
-                        <input type="password" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+                        <input name='password' type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div className=' flex justify-between pr-2'>
                         <div class="flex items-start mb-6">
                             <div class="flex items-center h-5">
-                                <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 " required />
+                                <input id="remember" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 " />
                             </div>
                             <label for="remember" class="ml-2 text-sm font-medium text-gray-900">Remember me</label>
                         </div>

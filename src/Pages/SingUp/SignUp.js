@@ -1,22 +1,32 @@
 import React from 'react';
 
 const SignUp = () => {
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        const form = event.target;
+        const userName = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(userName, email, password);
+
+    }
     return (
         <div>
-            <form className=' flex justify-center '>
+            <form onSubmit={handleSubmit} className=' flex justify-center '>
                 <div className=' w-96 border-purple-700  p-6'>
                     <h2 className=' font-bold text-4xl text-purple-700 text-center p-3'>SignUp</h2>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+                        <input name='name' type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                        <input type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+                        <input name='email' type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
                     <div class="mb-6">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Your password</label>
-                        <input type="password" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
+                        <input name='password' type="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " required />
                     </div>
 
                     <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase">SignUp</button>
