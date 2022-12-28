@@ -13,7 +13,7 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
         const confirm = window.confirm("Do you want to delete this task");
         if (confirm) {
 
-            fetch(`http://localhost:5000/deleteTask/${_id}`, {
+            fetch(`https://task-serrver.vercel.app/deleteTask/${_id}`, {
                 method: "DELETE"
 
             })
@@ -33,7 +33,7 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
             message: 'incomplete'
         }
 
-        fetch(`http://localhost:5000/updateStatus/${_id}`, {
+        fetch(`https://task-serrver.vercel.app/updateStatus/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

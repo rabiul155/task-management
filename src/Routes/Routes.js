@@ -44,14 +44,14 @@ const router = createBrowserRouter([
             },
             {
                 path: '/update/:_id',
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params._id}`),
+                loader: ({ params }) => fetch(`https://task-serrver.vercel.app/update/${params._id}`),
                 element: <Update></Update>
 
             },
             {
                 path: "/comment/:_id",
                 element: <AddComment></AddComment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/update/${params._id}`),
+                loader: ({ params }) => fetch(`https://task-serrver.vercel.app/update/${params._id}`),
             }
         ]
 

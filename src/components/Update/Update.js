@@ -17,7 +17,7 @@ const Update = () => {
         }
         console.log(taskdetails)
 
-        fetch(`http://localhost:5000/updateDetails/${task._id}`, {
+        fetch(`https://task-serrver.vercel.app/updateDetails/${task._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

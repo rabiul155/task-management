@@ -12,7 +12,7 @@ const MyTask = () => {
     const { data: myTask = [], isLoading, refetch } = useQuery({
         queryKey: ['myTask', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myTask?email=${user?.email}`, {
+            const res = await fetch(`https://task-serrver.vercel.app/myTask?email=${user?.email}`, {
             });
 
             const data = await res.json();

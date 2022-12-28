@@ -60,7 +60,7 @@ const AddTask = () => {
                     }
                     console.log(task)
 
-                    fetch('http://localhost:5000/addTask', {
+                    fetch('https://task-serrver.vercel.app/addTask', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

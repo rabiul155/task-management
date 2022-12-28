@@ -19,7 +19,7 @@ const AddComment = () => {
         console.log(comment);
 
 
-        fetch(`http://localhost:5000/addComment/${task._id}`, {
+        fetch(`https://task-serrver.vercel.app/addComment/${task._id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
