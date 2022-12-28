@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-hot-toast';
+import { AuthContext } from '../../layout/context/AuthProvider';
 
 const SignUp = () => {
 
+    const { createUser, googleLogIn } = useContext(AuthContext);
+
+
     const handleSubmit = (event) => {
+
         event.preventDefault()
         const form = event.target;
         const userName = form.name.value;
@@ -10,11 +16,35 @@ const SignUp = () => {
         const password = form.password.value;
         console.log(userName, email, password);
 
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                toast.success('create user successfully')
+            })
+            .then(err => {
+                console.error('sign up error', err)
+            })
+
     }
+
+    const handleGoogle = () => {
+        googleLogIn()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success('lonin with google successfully')
+
+            })
+            .catch(err => console.log('google log in error ', err))
+    }
+
+
     return (
-        <div>
-            <form onSubmit={handleSubmit} className=' flex justify-center '>
-                <div className=' w-96 border-purple-700  p-6'>
+        <div className=' flex justify-center '>
+            <div className=' w-96 border-purple-700  p-6'>
+                <form onSubmit={handleSubmit} >
+
                     <h2 className=' font-bold text-4xl text-purple-700 text-center p-3'>SignUp</h2>
                     <div class="mb-6">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Name</label>
@@ -39,10 +69,13 @@ const SignUp = () => {
                         </div>
 
                     </div>
-                    <button type="submit" class="text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase"> continue with Google</button>
-                </div>
-            </form>
 
+
+                </form>
+
+                <button onClick={handleGoogle} type="submit" class="text-white bg-blue-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase"> continue with Google</button>
+
+            </div>
 
 
         </div>
