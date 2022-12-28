@@ -7,6 +7,7 @@ import 'react-calendar/dist/Calendar.css'
 import { AuthContext } from '../../layout/context/AuthProvider';
 import Loading from '../../components/Loading/Loading';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const AddTask = () => {
 
@@ -17,6 +18,7 @@ const AddTask = () => {
 
     const imageHostingKey = '60a0534fb81af8024326073b2526de82';
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
 
 
 
@@ -68,7 +70,7 @@ const AddTask = () => {
                         .then(res => res.json())
                         .then(data => {
                             toast.success('task added')
-                            console.log(data)
+                            navigate('/myTask')
                         })
                 }
 

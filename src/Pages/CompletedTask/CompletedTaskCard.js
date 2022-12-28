@@ -1,10 +1,13 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CompletedTaskCard = ({ setComment, task, refetch }) => {
 
     console.log(task);
-    const { _id, taskName, picture, date, status, details } = task;
+    const { _id, taskName, picture, date, status, details, comment } = task;
+
+    const navigate = useNavigate()
 
     const handleDelete = (_id) => {
         const confirm = window.confirm("Do you want to delete this task");
@@ -41,6 +44,7 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
             .then(data => {
                 toast.success('task completed')
                 console.log(data)
+                navigate('/myTask')
                 refetch()
             })
     }
@@ -57,12 +61,17 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
                             <h2 className=' font-semibold text-lg'>Status : {status}</h2>
                             <h2 className=' font-semibold text-md'>Complete Date : {date}</h2>
                             <p>Task Details : {details}</p>
+                            {
+                                comment && <p>Comment : {comment}</p>
+                            }
                         </div>
                         <div className='lg:absolute right-4 bottom-4 flex justify-end'>
 
-                            <button type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-orange-400 text-white">Add Comment</button>
-                            <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-pink-500 text-white">Delete</button>
-                            <button onClick={() => handleInComplete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-purple-700 text-white">InComplete</button>
+                            <Link to={`/comment/${_id}`} >
+                                <button type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-orange-400 hover:bg-orange-700 text-white">Add Comment</button>
+                            </Link>
+                            <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-pink-500 hover:bg-pink-700 text-white">Delete</button>
+                            <button onClick={() => handleInComplete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-purple-500 hover:bg-purple-700 text-white">InComplete</button>
 
 
                         </div>

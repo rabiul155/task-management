@@ -27,7 +27,7 @@ const MyTask = () => {
         return <Loading></Loading>
     }
 
-    if (!myTask) {
+    if (myTask.length === 0) {
         return <>
             <h2 className=' text-4xl font-bold text-center text-purple-700 m-8'>You haven't add any task yet. Please, add task </h2>
         </>
@@ -47,8 +47,6 @@ const MyTask = () => {
                     setUpdate={setUpdate}
                 ></TaskCard>)
             }
-
-
 
         </div>
     );

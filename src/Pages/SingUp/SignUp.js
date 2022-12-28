@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../layout/context/AuthProvider';
 
 const SignUp = () => {
 
     const { createUser, googleLogIn } = useContext(AuthContext);
+    const navigate = useNavigate();
 
 
     const handleSubmit = (event) => {
@@ -21,6 +23,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 toast.success('create user successfully')
+                navigate('/')
             })
             .then(err => {
                 console.error('sign up error', err)
@@ -34,6 +37,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('lonin with google successfully')
+                navigate('/')
 
             })
             .catch(err => console.log('google log in error ', err))

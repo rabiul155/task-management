@@ -22,6 +22,12 @@ const CompletedTask = () => {
     if (isLoading) {
         return <Loading></Loading>
     }
+    if (completedTask.length === 0) {
+        return <>
+            <h2 className=' text-4xl font-bold text-center text-purple-700 m-8'>You haven't Complete any task yet. Please, Complete first!!! </h2>
+        </>
+
+    }
 
     return (
 

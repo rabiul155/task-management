@@ -1,14 +1,13 @@
 import React from 'react';
 import { toast } from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 
 const TaskCard = ({ task, refetch, setUpdate }) => {
     console.log(task);
     const { _id, taskName, picture, date, status, details } = task;
 
 
-    const handleUpdate = (_id) => {
-
-    }
+    const navigate = useNavigate()
 
     const handleDelete = (_id) => {
         const confirm = window.confirm("Do you want to delete this task");
@@ -45,6 +44,7 @@ const TaskCard = ({ task, refetch, setUpdate }) => {
             .then(data => {
                 toast.success('task completed')
                 console.log(data)
+                navigate("/completedTask")
                 refetch()
             })
     }
@@ -64,14 +64,17 @@ const TaskCard = ({ task, refetch, setUpdate }) => {
                     </div>
                     <div className='lg:absolute right-4 bottom-4 flex justify-end'>
 
-                        <button onClick={() => setUpdate(details)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-orange-400 text-white">Update</button>
-                        <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-pink-500 text-white">Delete</button>
-                        <button onClick={() => handleComplete(_id)} type="button" className=" p-2 m-2 font-semibold  rounded-md dark:bg-purple-700 text-white">Complete</button>
+                        <Link to={`/update/${_id}`} type="button" className=" p-2 m-2 font-semibold  hover:bg-orange-700  rounded-md dark:bg-orange-400 text-white">Update</Link>
+                        <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-pink-700 rounded-md dark:bg-pink-500 text-white">Delete</button>
+                        <button onClick={() => handleComplete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-purple-700  rounded-md dark:bg-purple-600 text-white">Complete</button>
 
 
                     </div>
                 </div>
             </div>
+
+
+
         </div>
     );
 };

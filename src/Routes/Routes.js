@@ -1,7 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
+import AddComment from "../components/AddComment/AddComment";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import Update from "../components/Update/Update";
 import Main from "../layout/Main";
 import AddTask from "../Pages/AddTask/AddTask";
 import CompletedTask from "../Pages/CompletedTask/CompletedTask";
+import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import MyTask from "../Pages/MyTask/MyTask";
 import SignUp from "../Pages/SingUp/SignUp";
@@ -17,20 +21,37 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
+                path: '/',
+                element: <Home></Home>
+
+            },
+
+            {
                 path: '/signup',
                 element: <SignUp></SignUp>
             },
             {
                 path: 'addTask',
-                element: <AddTask></AddTask>
+                element: <PrivateRoute><AddTask></AddTask></PrivateRoute>
             },
             {
                 path: '/myTask',
-                element: <MyTask></MyTask>
+                element: <PrivateRoute> <MyTask></MyTask></PrivateRoute>
             },
             {
                 path: '/completedTask',
-                element: <CompletedTask></CompletedTask>
+                element: <PrivateRoute><CompletedTask></CompletedTask></PrivateRoute>
+            },
+            {
+                path: '/update/:_id',
+                loader: ({ params }) => fetch(`http://localhost:5000/update/${params._id}`),
+                element: <Update></Update>
+
+            },
+            {
+                path: "/comment/:_id",
+                element: <AddComment></AddComment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/update/${params._id}`),
             }
         ]
 
