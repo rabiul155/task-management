@@ -42,7 +42,7 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('task completed')
+                toast.success('task InCompleted')
                 console.log(data)
                 navigate('/myTask')
                 refetch()
