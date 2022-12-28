@@ -5,16 +5,25 @@ import 'react-date-picker/dist/DatePicker.css'
 import 'react-calendar/dist/Calendar.css'
 
 import { AuthContext } from '../../layout/context/AuthProvider';
+import Loading from '../../components/Loading/Loading';
+import { toast } from 'react-hot-toast';
 
 const AddTask = () => {
 
+    const [loading, setLoading] = useState(false)
+
     const { user } = useContext(AuthContext);
-    const [selectedDate, setSelectedDate] = useState(new Date().toLocaleDateString());
+    const [selectedDate, setSelectedDate] = useState(new Date());
 
     const imageHostingKey = '60a0534fb81af8024326073b2526de82';
     const { register, handleSubmit } = useForm();
 
+
+
+
     const handleAddTask = data => {
+
+        setLoading(true)
 
         const image = data.picture[0];
         const formData = new FormData()
@@ -31,10 +40,11 @@ const AddTask = () => {
                 if (imgData?.success) {
                     const taskName = data.taskName;
                     const picture = imgData.data.url;
-                    const date = selectedDate;
+                    const date = selectedDate.toLocaleDateString();
                     const details = data.details;
                     const status = 'incomplete';
                     const comment = '';
+
 
                     const task = {
 
@@ -47,13 +57,34 @@ const AddTask = () => {
                         comment
                     }
                     console.log(task)
+
+                    fetch('http://localhost:5000/addTask', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(task)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            toast.success('task added')
+                            console.log(data)
+                        })
                 }
 
 
 
 
             })
+
+        setLoading(false)
     }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
+
 
     return (
 
@@ -74,7 +105,7 @@ const AddTask = () => {
 
                     <div className="w-full ">
                         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                        <input {...register('picture')} class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file" />
+                        <input {...register('picture')} required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file" />
 
                     </div>
 
@@ -98,12 +129,12 @@ const AddTask = () => {
 
                     <button type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase"> ADD TASK</button>
 
-
                 </div>
 
             </form>
 
         </div>
+
     );
 };
 
