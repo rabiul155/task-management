@@ -44,7 +44,7 @@ const Update = () => {
 
                         <div className=" w-full">
 
-                            <label className="block mb-2 text-sm font-medium text-gray-100 ">Task Details</label>
+                            <label className="block mb-2 text-sm font-medium dark:text-gray-100 ">Task Details</label>
                             <textarea
                                 name='details'
                                 defaultValue={task.details}

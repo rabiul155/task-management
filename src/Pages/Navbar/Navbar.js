@@ -1,9 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+
 import { toast } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../layout/context/AuthProvider';
 
+import { HiOutlineSun } from "react-icons/hi";
+import { HiMoon } from "react-icons/hi2";
+import './Navbar.css'
+
 const Navbar = () => {
+
+    const [theme, setTheme] = useState('dark')
 
     const { user, logOut } = useContext(AuthContext);
 
@@ -17,11 +24,34 @@ const Navbar = () => {
             })
     }
 
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.body.classList.add('dark')
+        }
+        else {
+            document.body.classList.remove('dark')
+        }
+
+
+    }, [theme])
+
+    const handleToggle = () => {
+        if (theme) {
+            setTheme('')
+        }
+        else {
+            setTheme('dark')
+
+        }
+
+    }
+
+
     return (
         <div>
 
 
-            <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2 dark:bg-gray-900">
+            <nav className="bg-gray-300 border-gray-200 px-2 sm:px-4 py-2 dark:bg-gray-900">
                 <div className="container flex flex-wrap items-center justify-between mx-auto">
                     <Link className="flex items-center">
 
@@ -46,11 +76,18 @@ const Navbar = () => {
 
                         }
 
+                        <button className='px-3' onClick={handleToggle}>
+                            {
+                                theme ?
+
+                                    <p><HiMoon className='toggle'></HiMoon></p>
+                                    :
+                                    <p><HiOutlineSun className='toggle'></HiOutlineSun></p>
+
+                            }
 
 
-
-
-
+                        </button>
 
 
                         <button data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
@@ -61,19 +98,19 @@ const Navbar = () => {
 
                     </div>
                     <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
-                        <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  md:dark:bg-gray-900 dark:border-gray-700">
 
                             <li>
-                                <Link to='/' className="block py-2 pl-3 pr-4 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white ">Home</Link>
+                                <Link to='/' className="block font-bold py-2 pl-3 pr-4 dark:text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white ">Home</Link>
                             </li>
                             <li>
-                                <Link to='addTask' className="block py-2 pl-3 pr-4 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">Add Task</Link>
+                                <Link to='addTask' className="block font-bold py-2 pl-3 pr-4 dark:text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">Add Task</Link>
                             </li>
                             <li>
-                                <Link to='myTask' className="block py-2 pl-3 pr-4 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">My Task</Link>
+                                <Link to='myTask' className="block font-bold py-2 pl-3 pr-4 dark:text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">My Task</Link>
                             </li>
                             <li>
-                                <Link to='completedTask' className="block py-2 pl-3 pr-4 text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">Completed Task</Link>
+                                <Link to='completedTask' className="block font-bold py-2 pl-3 pr-4 dark:text-gray-100 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white">Completed Task</Link>
                             </li>
                         </ul>
                     </div>

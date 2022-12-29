@@ -99,21 +99,21 @@ const AddTask = () => {
 
                     <div className=" w-full">
                         <label >
-                            <span className="block mb-2 text-sm font-medium text-gray-100 ">Task Name</span>
+                            <span className="block mb-2 text-sm font-medium dark:text-gray-100 text-gray-900">Task Name</span>
                         </label>
                         <input  {...register('taskName')} required type="text"
                             placeholder="Type here" className="block w-full text-gray-900 border border-gray-500 rounded-lg bg-gray-200 sm:text-md  " />
                     </div>
 
                     <div className="w-full ">
-                        <label className="block mb-2 text-sm font-medium text-gray-100 " for="file_input">Upload file</label>
+                        <label className="block mb-2 text-sm font-medium dark:text-gray-100 text-gray-900" for="file_input">Upload file</label>
                         <input {...register('picture')} required className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-200" id="file_input" type="file" />
 
                     </div>
 
                     <div className=" w-full">
 
-                        <label className="block mb-2 text-sm font-medium text-gray-100 ">Select Date</label>
+                        <label className="block mb-2 text-sm font-medium dark:text-gray-100 text-gray-900 ">Select Date</label>
                         <div className=" w-full" >
                             <DatePicker
                                 {...register('date')}
@@ -124,7 +124,7 @@ const AddTask = () => {
 
                     <div className=" w-full">
 
-                        <label className="block mb-2 text-sm font-medium text-gray-100 ">Task Details</label>
+                        <label className="block mb-2 text-sm font-medium dark:text-gray-100 text-gray-900 ">Task Details</label>
                         <textarea {...register('details')} rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write task details here..."></textarea>
 
                     </div>

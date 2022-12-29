@@ -53,7 +53,7 @@ const TaskCard = ({ task, refetch, setUpdate }) => {
     return (
         <div className='m-5'>
 
-            <div className="relative bg-gray-800 lg:flex rounded-md shadow-md ">
+            <div className="relative bg-gray-200 dark:bg-gray-800 lg:flex rounded-md shadow-md ">
                 <img src={picture} alt="" className="mx-auto sm:mx-0 object-cover object-center rounded-md h-56   max-w-full" />
                 <div className="flex flex-col justify-between p-6">
                     <div className="">
@@ -64,9 +64,9 @@ const TaskCard = ({ task, refetch, setUpdate }) => {
                     </div>
                     <div className='lg:absolute right-4 bottom-4 flex justify-end'>
 
-                        <Link to={`/update/${_id}`} type="button" className=" p-2 m-2 font-semibold  hover:bg-orange-700  rounded-md dark:bg-orange-400 text-white">Update</Link>
-                        <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-pink-700 rounded-md dark:bg-pink-500 text-white">Delete</button>
-                        <button onClick={() => handleComplete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-purple-700  rounded-md dark:bg-purple-600 text-white">Complete</button>
+                        <Link to={`/update/${_id}`} type="button" className=" p-2 m-2 font-semibold  hover:bg-orange-700  rounded-md bg-orange-400 text-white">Update</Link>
+                        <button onClick={() => handleDelete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-pink-700 rounded-md bg-pink-500 text-white">Delete</button>
+                        <button onClick={() => handleComplete(_id)} type="button" className=" p-2 m-2 font-semibold  hover:bg-purple-700  rounded-md bg-purple-600 text-white">Complete</button>
 
 
                     </div>
