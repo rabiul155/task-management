@@ -53,7 +53,7 @@ const CompletedTaskCard = ({ setComment, task, refetch }) => {
         <div>
             <div className='m-5'>
 
-                <div className="relative lg:flex rounded-md shadow-md ">
+                <div className="relative lg:flex bg-gray-800 rounded-md shadow-md ">
                     <img src={picture} alt="" className="mx-auto sm:mx-0 object-cover object-center rounded-md h-56   max-w-full" />
                     <div className="flex flex-col justify-between p-6">
                         <div className="">

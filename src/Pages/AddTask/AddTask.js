@@ -91,7 +91,7 @@ const AddTask = () => {
     return (
 
 
-        <div className='mx-5'>
+        <div className='mx-5 '>
             <h2 className=' text-4xl m-5 font-bold text-center text-pink-500'>Add Task </h2>
             <form onSubmit={handleSubmit(handleAddTask)} >
 
@@ -99,33 +99,33 @@ const AddTask = () => {
 
                     <div className=" w-full">
                         <label >
-                            <span className="block mb-2 text-sm font-medium text-gray-900 ">Task Name</span>
+                            <span className="block mb-2 text-sm font-medium text-gray-100 ">Task Name</span>
                         </label>
                         <input  {...register('taskName')} required type="text"
-                            placeholder="Type here" className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md  " />
+                            placeholder="Type here" className="block w-full text-gray-900 border border-gray-500 rounded-lg bg-gray-200 sm:text-md  " />
                     </div>
 
                     <div className="w-full ">
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="file_input">Upload file</label>
-                        <input {...register('picture')} required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50" id="file_input" type="file" />
+                        <label class="block mb-2 text-sm font-medium text-gray-100 " for="file_input">Upload file</label>
+                        <input {...register('picture')} required class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-200" id="file_input" type="file" />
 
                     </div>
 
                     <div className=" w-full">
 
-                        <label class="block mb-2 text-sm font-medium text-gray-900 ">Select Date</label>
+                        <label class="block mb-2 text-sm font-medium text-gray-100 ">Select Date</label>
                         <div className=" w-full" >
                             <DatePicker
                                 {...register('date')}
-                                className='w-full block border border-gray-300 rounded-lg bg-gray-50' onChange={date => setSelectedDate(date)} value={selectedDate} />
+                                className='w-full block h-11 text-gray-900 border-gray-300 rounded-lg bg-gray-200' onChange={date => setSelectedDate(date)} value={selectedDate} />
                         </div>
 
                     </div>
 
                     <div className=" w-full">
 
-                        <label class="block mb-2 text-sm font-medium text-gray-900 ">Task Details</label>
-                        <textarea {...register('details')} rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write task details here..."></textarea>
+                        <label class="block mb-2 text-sm font-medium text-gray-100 ">Task Details</label>
+                        <textarea {...register('details')} rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write task details here..."></textarea>
 
                     </div>
 

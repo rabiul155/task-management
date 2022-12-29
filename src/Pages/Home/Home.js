@@ -1,10 +1,10 @@
 import React from 'react';
-import img from '../../images/task.png'
+import img from '../../images/task4.png'
 
 const Home = () => {
     return (
         <div>
-            <section className=" ">
+            <section className="dark:bg-gray-700 dark:text-gray-100 ">
                 <div className="container flex flex-col justify-center p-6 mx-auto sm:py-6 lg:py-8 lg:flex-row lg:justify-between">
                     <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
                         <h1 className="text-5xl font-bold  sm:text-6xl">Complete
@@ -19,7 +19,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-full">
-                        <img src={img} alt="" className="object-contain h- sm:h-80 lg:h-full" />
+                        <img src={img} alt="" className="object-contain dark:bg-gray-700 dark:text-gray-100 h- sm:h-80 lg:h-full" />
                     </div>
                 </div>
             </section>

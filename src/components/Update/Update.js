@@ -44,11 +44,11 @@ const Update = () => {
 
                         <div className=" w-full">
 
-                            <label class="block mb-2 text-sm font-medium text-gray-900 ">Task Details</label>
+                            <label class="block mb-2 text-sm font-medium text-gray-100 ">Task Details</label>
                             <textarea
                                 name='details'
                                 defaultValue={task.details}
-                                rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write task details here..."></textarea>
+                                rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write task details here..."></textarea>
 
                         </div>
 
