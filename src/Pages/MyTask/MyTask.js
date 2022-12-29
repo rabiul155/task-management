@@ -29,7 +29,7 @@ const MyTask = () => {
 
     if (myTask.length === 0) {
         return <>
-            <h2 className=' text-4xl font-bold text-center text-purple-700 m-8'>You haven't add any task yet. Please, add task </h2>
+            <h2 className=' text-4xl font-bold text-center text-cyan-400 m-8'>You haven't add any task yet. Please, add task </h2>
         </>
 
     }

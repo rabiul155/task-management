@@ -49,15 +49,15 @@ const AddComment = () => {
 
                         <div className=" w-full">
 
-                            <label class="block mb-2 text-sm font-medium text-gray-100 ">Comment</label>
+                            <label className="block mb-2 text-sm font-medium text-gray-100 ">Comment</label>
                             <textarea
                                 name='comment'
                                 defaultValue={task?.comment}
-                                rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your comment here..."></textarea>
+                                rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-200 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 " placeholder="Write your comment here..."></textarea>
 
                         </div>
 
-                        <button type="submit" class="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase">comment</button>
+                        <button type="submit" className="text-white bg-blue-600 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full px-5 py-2.5 text-center uppercase">comment</button>
 
                     </div>
 
